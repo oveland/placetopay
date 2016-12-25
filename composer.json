@@ -1,0 +1,22 @@
+{
+    "name": "oveland/placetopay",
+    "description": "PHP library to make a basic test pay with PlaceToPay",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Oscar Velásquez",
+            "email": "oscarivelan@gmail.com.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "~5.0"
+    },
+    "require": {},
+    "autoload":{
+        "psr-4":{
+            "Oveland\\Placetopay\\":"src/"
+        }
+    }
+}
