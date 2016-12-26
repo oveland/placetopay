@@ -1,21 +1,32 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Oscar
- * Date: 26/12/2016
- * Time: 11:03 PM
+ * Date: 25/12/2016
+ * Time: 3:04 PM
  */
-
-include __DIR__ . '/../vendor/autoload.php';
 
 use Oveland\Placetopay\PlaceToPay;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
- * Class Example
+ * Class PlaceToPay
  */
-class Example
+class PlaceToPayTest extends TestCase
 {
-    public static function pay()
+    public function testArrayBankList()
+    {
+        $placetopay = new PlaceToPay();
+
+        $bankList = $placetopay->getBankList();
+
+        $this->assertNotEmpty($bankList);
+
+        $this->assertInternalType('array', $bankList);
+    }
+
+    public function testSUCCESSStatusRequestTransaction()
     {
         $params = [
             'payer' => [
@@ -61,18 +72,8 @@ class Example
 
         $placetopay = new PlaceToPay();
 
-        dump($placetopay->getBankList());
+        $transaction = $placetopay->createTransaction($params);
 
-        try {
-            $transaction = $placetopay->createTransaction($params);
-            $status = $placetopay->getTransactionInformation($transaction->getTransactionID());
-
-            dump($transaction);
-            dump($status);
-        } catch (Exception $ex) {
-            dump($ex);
-        }
+        $this->assertEquals('SUCCESS', $transaction->getReturnCode());
     }
 }
-
-Example::pay();

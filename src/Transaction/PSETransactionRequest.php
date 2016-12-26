@@ -85,7 +85,8 @@ class PSETransactionRequest
                 getenv('HTTP_X_FORWARDED') ?:
                     getenv('HTTP_FORWARDED_FOR') ?:
                         getenv('HTTP_FORWARDED') ?:
-                            getenv('REMOTE_ADDR');
+                            getenv('REMOTE_ADDR') ?
+                                getenv('REMOTE_ADDR'):'127.0.0.1';
     }
 
     /**
@@ -93,7 +94,7 @@ class PSETransactionRequest
      */
     private function ExactBrowserName()
     {
-        $ExactBrowserNameUA = $_SERVER['HTTP_USER_AGENT'];
+        $ExactBrowserNameUA = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'Default';
 
         if (strpos(strtolower($ExactBrowserNameUA), "safari/") and strpos(strtolower($ExactBrowserNameUA), "opr/")) {
             // OPERA

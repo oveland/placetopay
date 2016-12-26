@@ -46,7 +46,7 @@ class PlaceToPay
      */
     public function getBankList()
     {
-        return $this->wsm->getBanksList();
+        return $this->wsm->getBankList();
     }
 
     /**

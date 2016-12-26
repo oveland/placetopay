@@ -75,6 +75,13 @@ $status = $placetopay->getTransactionInformation($transaction->getTransactionID(
 
 #### <i class="icon-file"></i> **Methods**
 
+>**Bank List**:
+
+> Get array of bank list:
+`$placetopay->getBankList(); ` 
+
+________________________
+
 >**Transaction**:
 
 > Get return code:
