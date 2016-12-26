@@ -8,6 +8,8 @@
 
 namespace Oveland\Placetopay\Security;
 
+use Oveland\Placetopay\Model\Attribute;
+
 /**
  * Class Authentication
  * @package Oveland\Placetopay\Security
@@ -26,7 +28,20 @@ class Authentication
     {
         static::$login = isset($credentials['login']) ? $credentials['login'] : null;
         static::$tranKey = isset($credentials['tranKey']) ? $credentials['tranKey'] : null;
-        static::$additional = isset($credentials['tranKey']) ? $credentials['tranKey'] : null;
+        static::$additional = isset($credentials['additional']) ? self::setAdditionalData($credentials['additional']) : null;
+    }
+
+    public static function setAdditionalData($params)
+    {
+        $attributes = [];
+
+        if (is_array($params)) {
+            foreach ($params as $attribute) {
+                $attributes[]['item'] = (new Attribute($attribute))->getData();
+            }
+        }
+
+        return $attributes;
     }
 
     /**

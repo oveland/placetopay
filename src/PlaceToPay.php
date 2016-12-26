@@ -56,6 +56,7 @@ class PlaceToPay
     public function createTransaction($params)
     {
         $pseTransactionRequest = new PSETransactionRequest($params);
+
         $wsRequest = $this->wsm->createTransaction($pseTransactionRequest);
 
         return new PSETransactionResponse($wsRequest);
@@ -68,6 +69,7 @@ class PlaceToPay
     public function getTransactionInformation($pseTransactionID)
     {
         $wsRequest = $this->wsm->getTransactionInformation($pseTransactionID);
+
         return new TransactionInformation($wsRequest);
     }
 }

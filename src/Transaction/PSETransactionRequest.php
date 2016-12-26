@@ -8,6 +8,7 @@
 
 namespace Oveland\Placetopay\Transaction;
 
+use Oveland\Placetopay\Model\Attribute;
 use Oveland\Placetopay\Model\Bank;
 use Oveland\Placetopay\Model\Person;
 use Oveland\Placetopay\Security\AuthenticatesRequests;
@@ -40,7 +41,20 @@ class PSETransactionRequest
         $this->shipping = new Person(isset($params['shipping']) ? $params['shipping'] : null);
         $this->ipAddress = $this->getClientIp();
         $this->userAgent = $this->ExactBrowserName();
-        $this->additionalData = isset($params['additionalData']) ? $params['additionalData'] : null;
+        $this->additionalData = isset($params['additionalData']) ? $this->setAdditionalData($params['additionalData']) : null;
+    }
+
+    public function setAdditionalData($params)
+    {
+        $attributes = [];
+
+        if (is_array($params)) {
+            foreach ($params as $attribute) {
+                $attributes[]['item'] = (new Attribute($attribute))->getData();
+            }
+        }
+
+        return $attributes;
     }
 
     /**

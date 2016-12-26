@@ -19,7 +19,7 @@ class Example
     {
         $params = [
             'payer' => [
-                'documentType' => 'CCs',
+                'documentType' => 'CC',
                 'document' => '1061743074',
                 'firstName' => 'Oscar',
                 'lastName' => 'Velásquez Andrade',
@@ -46,19 +46,28 @@ class Example
                 'taxAmount' => 0,
                 'devolutionBase' => 0,
                 'tipAmount' => 0
+            ],
+            'additionalData' => [
+                [
+                    'name' => 'foo',
+                    'value' => 'bar'
+                ],
+                [
+                    'name' => 'foo_1',
+                    'value' => 'bar_1'
+                ]
             ]
         ];
 
         $placetopay = new PlaceToPay();
 
-        try{
+        try {
             $transaction = $placetopay->createTransaction($params);
             $status = $placetopay->getTransactionInformation($transaction->getTransactionID());
 
             dump($transaction);
             dump($status);
-        }
-        catch (Exception $ex){
+        } catch (Exception $ex) {
             dump($ex);
         }
     }
