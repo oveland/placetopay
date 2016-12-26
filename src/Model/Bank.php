@@ -6,12 +6,12 @@
  * Time: 6:48 PM
  */
 
-namespace Oveland\Placetopay;
+namespace Oveland\Placetopay\Model;
 
 
 /**
  * Class Bank
- * @package App
+ * @package Oveland\Placetopay\Model
  */
 class Bank
 {
@@ -29,26 +29,20 @@ class Bank
 
     /**
      * Bank constructor.
+     * @param $params
      */
-    function __construct()
+    function __construct(array $params = null)
     {
-        $this->bankCode = 1022;
-        $this->bankInterface = 0;
-        $this->returnURL = 'http://oveland.app/';
-        $this->reference = uniqid(rand(), true);
-        $this->description = 'Pago de prueba Oveland';
-        $this->language = 'ES';
-        $this->currency = 'COP';
-        $this->totalAmount = 10;
-        $this->taxAmount = 0;
-        $this->devolutionBase = 0;
-        $this->tipAmount = 0;
+        foreach (get_object_vars($this) as $field => $value) {
+            $this->$field = isset($params[$field]) ? $params[$field] : $value;
+        }
     }
 
     /**
      * @return array
      */
-    public function getTransactionData() {
+    public function getTransactionData()
+    {
         return get_object_vars($this);
     }
 }
