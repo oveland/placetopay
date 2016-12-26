@@ -8,11 +8,11 @@
 
 namespace Oveland\Placetopay\Providers;
 
-use Oveland\Placetopay\Transaction\PSETransactionRequest;
 use SoapClient;
 use Symfony\Component\Yaml\Yaml;
 use Oveland\Placetopay\Cache\CachesManage;
 use Oveland\Placetopay\Security\AuthenticatesRequests;
+use Oveland\Placetopay\Transaction\PSETransactionRequest;
 
 /**
  * Class WsManager
