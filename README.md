@@ -91,7 +91,7 @@ ________________________
 `$transaction->getBankURL(); ` 
 
 > Get trazability code:
-	`$transaction->getTrazabilityCode(); ` 
+`$transaction->getTrazabilityCode(); ` 
 
 > Get transaction cycle:
 `$transaction->getTransactionCycle(); ` 
@@ -125,49 +125,49 @@ ___________________
 >**Status**:
 
 > Get transaction ID:
-`$transaction->getTransactionID(); ` 
+`$status->getTransactionID(); ` 
 
 > Get session ID:
-`$transaction->getSessionID(); ` 	
+`$status->getSessionID(); ` 	
 
 > Get reference:
-`$transaction->getReference(); ` 
+`$status->getReference(); ` 
 
 > Get request date:
-`$transaction->getRequestDate(); ` 
+`$status->getRequestDate(); ` 
 
 > Get trazability code:
-	`$transaction->getTrazabilityCode(); ` 
+`$status->getTrazabilityCode(); ` 
 
 > Get bank process date:
-`$transaction->getBankProcessDate(); ` 
+`$status->getBankProcessDate(); ` 
 
 > Get bank on test:
-`$transaction->getOnTest(); ` 
+`$status->getOnTest(); ` 
 
 > Get return code:
-`$transaction->getReturnCode(); ` 
+`$status->getReturnCode(); ` 
 
 > Get trazability code:
-`$transaction->getTrazabilityCode(); ` 
+`$status->getTrazabilityCode(); ` 
 
 > Get transaction cycle:
-`$transaction->getTransactionCycle(); ` 
+`$status->getTransactionCycle(); ` 
 
 > Get transaction state:
-`$transaction->getTransactionState(); ` 
+`$status->getTransactionState(); ` 
 
 > Get response code:
-`$transaction->getResponseCode(); ` 
+`$status->getResponseCode(); ` 
 
 > Get response reason code:
-`$transaction->getResponseReasonCode(); ` 
+`$status->getResponseReasonCode(); ` 
 
 > Get response reason text:
-`$transaction->getResponseReasonText(); ` 
+`$status->getResponseReasonText(); ` 
 
 > Get array of all data:
-`$transaction->getData(); ` 
+`$status->getData(); ` 
 
 #### <i class="icon-file"></i> **Example**
 

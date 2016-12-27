@@ -32,6 +32,7 @@ class PSETransactionResponse
      */
     function __construct($params = null)
     {
+        $params = (object) $params;
         foreach (get_object_vars($this) as $field => $value) {
             $this->$field = isset($params->$field) ? $params->$field : $value;
         }
